@@ -1,5 +1,27 @@
-header {
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.titulo{
+    font-size: 60px;
     text-align: center;
-    padding: 10px;
-    font-size: 50px;
+    color:brown;
+    font-weight: bold;
+}
+
+.subtitulo{
+    font-size: 35px;
+    margin-left: 50px;
+}
+
+.titulo-e{
+    font-size: 20px;
+    margin-left: 60px;
+}
+
+p{
+    font-size: 16px;
+    margin-left: 90px;
+
 }
