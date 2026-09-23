@@ -1,6 +1,7 @@
 body{
     margin: 0;
     font-family: sans-serif;
+    background:rgb(209, 243, 206) !important; 
 }
 
 .titulo{
@@ -11,8 +12,13 @@ body{
 }
 
 .subtitulo{
+    margin-top: 20px;
     font-size: 35px;
+    padding: 5px;
     margin-left: 50px;
+    background: rgba(248, 189, 169, 0.293);
+    max-width: 700px;
+    border-radius: 10px;
 }
 
 .titulo-e{
@@ -23,5 +29,19 @@ body{
 p{
     font-size: 16px;
     margin-left: 90px;
+}
 
+img{
+    width: 95%;
+    height: 700px;
+    box-sizing: border-box;
+    margin: auto;
+    display: block;
+    border: 5px solid #111;
+    border-radius: 10px;
+}
+
+.link{
+    text-align: center;
+    font-weight: bold;
 }
