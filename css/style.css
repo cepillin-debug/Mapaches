@@ -1,7 +1,15 @@
-body{
+.body-index{
     margin: 0;
     font-family: sans-serif;
     background:rgb(209, 243, 206) !important; 
+}
+
+.body-contacto{
+    margin: 0;
+    font-family: sans-serif;
+    background:rgb(178, 203, 226);
+    
+
 }
 
 .titulo{
@@ -31,7 +39,7 @@ p{
     margin-left: 35px;
 }
 
-img{
+.img{
     width: 95%;
     height: 700px;
     box-sizing: border-box;
@@ -49,4 +57,8 @@ img{
 .barra-nav{
     text-align: right;
     margin: 10px;
+}
+
+.boton{
+    max-height: 500px;
 }
