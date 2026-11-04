@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <ul id="lista"></ul>
+    
+<table border="1" id="tabla"></table>
+<script>
+    fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQb5XxWdtL1X6UPcudNQugkMcMgUTQmGie5nIUbBlYO1Ym1Y6_7SElZ-12Mpf98bfphYOBYBfd3iUvz/pub?output=csv")
+        .then(res => res.text())
+        .then(data => {
+            const filas = data.split("\n").map(r => r.split(","));
+            let html = filas.map(f => `<tr><td>${f[@]}</td><td>${f[1]}</td></tr>`).join(""); 
+            document.getElementById("tabla").innerHTML = html;
+});
+
+
+</script>
+</body>
+</html>
