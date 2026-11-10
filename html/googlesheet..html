@@ -17,7 +17,7 @@
         .then(res => res.text())
         .then(data => {
             const filas = data.split("\n").map(r => r.split(","));
-            let html = filas.map(f => `<tr><td>${f[@]}</td><td>${f[1]}</td></tr>`).join(""); 
+            let html = filas.map(f => `<tr><td>${f[0]}</td><td>${f[1]}</td></tr>`).join(""); 
             document.getElementById("tabla").innerHTML = html;
 });
 
