@@ -3,21 +3,20 @@ body{
     font-family: sans-serif;
 }
 
-.barra{
-    margin: 0;
-    background: #c0e2e1;
+.separador-general{
+    background: #f7d9add1;
     width: 100%;
-    height: 200px;
-}
-
-.T-barra{
-    text-align: center;
+    height: 150px;
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: center;   
 }
 
+.texto-separador{
+    margin: 0;
+    text-align: center;
+}
 
 .cartas{
     width: 300px;

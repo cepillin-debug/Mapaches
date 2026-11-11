@@ -1,14 +1,6 @@
-body{
+.contenido{
     margin: 0;
-}
-
-.separador-titulo{
-    background: #f7d9ad;
+    background-color: #6866d4;
     width: 100%;
-    height: 300px;
-}
-
-.t{
-    margin: 0;
-    text-align: center;
+    height: 100%;
 }

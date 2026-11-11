@@ -1,0 +1,11 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.separador{
+    margin: 0;
+    background: #c0e2e1;
+    width: 100%;
+    height: 200px;
+}
