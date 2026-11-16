@@ -14,7 +14,16 @@ body{
 .boton-enviar{
     color: #000;
     background: #aacaf8;
+    border-radius: 5px;
+    padding: 5px;
 }
+
+.boton-creacion{
+    background: #aacaf8;
+    border-radius: 5px;
+    padding: 5px;
+}
+
 
 .contenedor{
     margin: 25px;
