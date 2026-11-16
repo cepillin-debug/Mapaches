@@ -1,5 +1,5 @@
 function P_Ampolleta(){
-               document.getElementById("imgp").src="../img/A-prendida.avif";
+              document.getElementById("imgp").src="../img/A-prendida.avif";
         }
 
 function A_Ampolleta(){
