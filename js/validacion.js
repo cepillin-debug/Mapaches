@@ -1,21 +1,67 @@
-const URL_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRezUYaXUDMNed7mc3zjfTdtiqCvqkOX5Fu_FAhPzgXrapvNmsad2yEjBXC6-_6LpgJ9Oy-syNrjTjB/pub?output=csv';
+const URL_SCRIPT = "https://script.google.com/macros/s/AKfycbyRc4y8z6L83UWCOjPpGgAe-cq7j_2nZ1Y4RolbRPCUUg7gN8mlPO7QXzRt1k4rpIHIpg/exec";
+const URL_CSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTMgQgCVfaEZgZVtcUk3iXlHaJfDfVjWJKn0WdxLVlg2J41U_Vob2YLRd-DWR9KGw5XAxa6erY2F1Yn/pub?output=csv";
 
-document.querySelector('form').addEventListener('submit', async (e) => {
+const formRegistro = document.getElementById("form-registro");
+const formLogin = document.getElementById("form-login");
+
+
+// ---------- CREAR CUENTA ----------
+if (formRegistro) {
+    formRegistro.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const gmail = document.getElementById('gmail').value.trim();
-    const clave = document.getElementById('contraseña').value.trim();
+    const datos = new URLSearchParams({
+        nombre: document.getElementById("nombre").value.trim(),
+        gmail: document.getElementById("gmail").value.trim(),
+        contrasena: document.getElementById("contraseña").value
+    });
 
-    const respuesta = await fetch(URL_CSV);
-    const texto = await respuesta.text();
+    fetch(URL_SCRIPT, { method: "POST", body: datos })
+        .then((res) => res.text())
+        .then((texto) => {
+        if (texto.trim() === "ok") {
+            alert("Cuenta creada correctamente");
+          formRegistro.reset(); // limpia el formulario
+        } else {
+            alert("El script respondió algo inesperado: " + texto);
+        }
+        })
+        .catch((err) => {
+        console.error(err);
+        alert("No se pudo guardar, revisa la consola (F12)");
+        });
+    });
+}
 
-    const filas = texto.split('\n').map(f => f.split(',').map(c => c.trim()));
 
-    const usuario = filas.find(f => f[0] === gmail && f[1] === clave);
+// ---------- INICIAR SESIÓN ----------
+if (formLogin) {
+    formLogin.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-    if (usuario) {
-    alert('Bienvenido');
-    } else {
-    alert('Gmail o contraseña incorrectos.');
-    }
-});
+    const gmail = document.getElementById("gmail").value.trim();
+    const contrasena = document.getElementById("contraseña").value;
+
+    fetch(URL_CSV + "&t=" + Date.now())
+        .then((res) => res.text())
+        .then((texto) => {
+        const filas = texto.trim().split(/\r?\n/).map((r) => r.split(","));
+        filas.shift(); // quita los encabezados
+
+        const usuario = filas.find(
+            (f) => f[1].trim() === gmail && f[2].trim() === contrasena
+        );
+
+        if (usuario) {
+            alert("Bienvenido, " + usuario[0]);
+          formLogin.reset(); // limpia el formulario
+        } else {
+            alert("Gmail o contraseña incorrectos");
+        }
+        })
+        .catch((err) => {
+        console.error(err);
+        alert("Error al conectar con la base de datos");
+        });
+    });
+}
