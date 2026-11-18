@@ -4,6 +4,12 @@ body{
     background:#F4F1EA;
 }
 
+.navegacion{
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
 .separador-general{
     background: rgb(192, 212, 231);
     width: 100%;
