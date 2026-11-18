@@ -1,18 +1,3 @@
-body{
-    margin: 0;
-    font-family: sans-serif;
-}
-
-.separador-general{
-    background: rgb(192, 212, 231);
-    width: 100%;
-    height: 150px;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .texto-separador{
     margin: 0;
     text-align: center;
