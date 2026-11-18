@@ -6,22 +6,22 @@
     <title>Document</title>
 </head>
 <body>
-    
-
 
     <ul id="lista"></ul>
-    
-<table border="1" id="tabla"></table>
-<script>
-    fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vTMgQgCVfaEZgZVtcUk3iXlHaJfDfVjWJKn0WdxLVlg2J41U_Vob2YLRd-DWR9KGw5XAxa6erY2F1Yn/pub?output=csv")
-        .then(res => res.text())
-        .then(data => {
-            const filas = data.split("\n").map(r => r.split(","));
-            let html = filas.map(f => `<tr><td>${f[0]}</td><td>${f[1]}</td></tr>`).join(""); 
-            document.getElementById("tabla").innerHTML = html;
-});
 
+    <table border="1" id="tabla"></table>
 
-</script>
+    <script>
+        fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vTMgQgCVfaEZgZVtcUk3iXlHaJfDfVjWJKn0WdxLVlg2J41U_Vob2YLRd-DWR9KGw5XAxa6erY2F1Yn/pub?output=csv")
+            .then(res => res.text())
+            .then(data => {
+                const filas = data.split("\n").map(r => r.split(","));
+
+                let html = filas.map(f => `<tr><td>${f[0]}</td><td>${f[1]}</td><td>${f[2]}</td></tr>`).join("");
+
+                document.getElementById("tabla").innerHTML = html;
+            });
+    </script>
+
 </body>
 </html>
