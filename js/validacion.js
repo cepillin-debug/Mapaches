@@ -21,7 +21,7 @@ if (formRegistro) {
         .then((texto) => {
         if (texto.trim() === "ok") {
             alert("Cuenta creada correctamente");
-          formRegistro.reset(); // limpia el formulario
+            formRegistro.reset();
         } else {
             alert("El script respondió algo inesperado: " + texto);
         }
@@ -46,7 +46,7 @@ if (formLogin) {
         .then((res) => res.text())
         .then((texto) => {
         const filas = texto.trim().split(/\r?\n/).map((r) => r.split(","));
-        filas.shift(); // quita los encabezados
+        filas.shift();
 
         const usuario = filas.find(
             (f) => f[1].trim() === gmail && f[2].trim() === contrasena
@@ -54,7 +54,7 @@ if (formLogin) {
 
         if (usuario) {
             alert("Bienvenido, " + usuario[0]);
-          formLogin.reset(); // limpia el formulario
+            formLogin.reset();
         } else {
             alert("Gmail o contraseña incorrectos");
         }
