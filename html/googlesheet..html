@@ -13,7 +13,7 @@
     
 <table border="1" id="tabla"></table>
 <script>
-    fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQb5XxWdtL1X6UPcudNQugkMcMgUTQmGie5nIUbBlYO1Ym1Y6_7SElZ-12Mpf98bfphYOBYBfd3iUvz/pub?output=csv")
+    fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vTMgQgCVfaEZgZVtcUk3iXlHaJfDfVjWJKn0WdxLVlg2J41U_Vob2YLRd-DWR9KGw5XAxa6erY2F1Yn/pub?output=csv")
         .then(res => res.text())
         .then(data => {
             const filas = data.split("\n").map(r => r.split(","));
